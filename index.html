@@ -3,11 +3,63 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Lucida Grande Demo</title>
+  <title>Lucida Grande Demo + ASCII</title>
   <link rel="stylesheet" href="styles.css" />
+  <style>
+    #ascii {
+      font-family: monospace;
+      white-space: pre;
+      background: black;
+      color: lime;
+      padding: 1rem;
+      border-radius: 8px;
+      max-width: 100%;
+      overflow-x: auto;
+      line-height: 1.2;
+    }
+  </style>
 </head>
 <body>
   <h1>Hello, Lucida Grande!</h1>
   <p>This is a test using the Aqua-era macOS font.</p>
+
+  <h2>ASCII Animation</h2>
+  <pre id="ascii"></pre>
+
+  <script>
+    const frames = [
+`   .     .
+    .     .
+     \\___/
+     (o o)
+    /  V  \\
+   /(     )\\
+    ^^   ^^`,
+
+`   .     .
+    .     .
+     \\___/
+     (o o)
+    /  V  \\
+   /(     )\\
+    ""   ""`,
+
+`   .     .
+    .     .
+     \\___/
+     (- -)
+    /  V  \\
+   /(     )\\
+    ^^   ^^`
+    ];
+
+    let i = 0;
+    const ascii = document.getElementById('ascii');
+
+    setInterval(() => {
+      ascii.textContent = frames[i % frames.length];
+      i++;
+    }, 250); // change speed here
+  </script>
 </body>
 </html>
